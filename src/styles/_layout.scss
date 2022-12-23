@@ -1,0 +1,54 @@
+@use "../styles/assets" as *;
+
+// common layout and classes
+
+.container {
+  display: flex;
+}
+
+.container--center {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container--between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container--col {
+  flex-direction: column;
+}
+
+.container--center-row {
+  justify-content: center;
+  align-items: center;
+}
+
+.gap--lg {
+  gap: 2rem;
+}
+
+.gap--md {
+  gap: 1rem;
+}
+
+.gap--sm {
+  gap: 0.3rem;
+}
+
+.round-btn {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $light-black;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  img {
+    object-fit: contain;
+  }
+}

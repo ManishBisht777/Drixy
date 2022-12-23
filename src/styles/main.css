@@ -1,0 +1,99 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  line-height: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  font-size: 1rem;
+  font-display: swap;
+}
+
+label[for=search] {
+  display: none;
+}
+
+.container {
+  display: flex;
+}
+
+.container--center {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container--between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container--col {
+  flex-direction: column;
+}
+
+.container--center-row {
+  justify-content: center;
+  align-items: center;
+}
+
+.gap--lg {
+  gap: 2rem;
+}
+
+.gap--md {
+  gap: 1rem;
+}
+
+.gap--sm {
+  gap: 0.3rem;
+}
+
+.round-btn {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.round-btn img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=main.css.map */
