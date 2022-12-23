@@ -40,7 +40,10 @@ button {
 
 body {
   font-size: 1rem;
-  font-display: swap;
+  background: #e0e0e0;
+  font-family: "Roboto", sans-serif;
+  color: #636363;
+  text-transform: capitalize;
 }
 
 label[for=search] {
@@ -88,7 +91,7 @@ label[for=search] {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #333333;
+  border: 1px solid #636363;
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
@@ -96,4 +99,32 @@ label[for=search] {
 .round-btn img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.button--primary {
+  padding: 0.5rem 2rem;
+  border: 1px solid #613583;
+  background: #613583;
+  color: #e0e0e0;
+  transition: 0.3s ease-in-out;
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  background: transparent;
+  color: #636363;
+  transition: 0.3s ease-in-out;
+}
+
+.landing,
+.what,
+.example {
+  padding: 2rem;
+  min-height: 80vh;
+}
+
+.landing h1 {
+  font-size: 3rem;
+  color: #613583;
+  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,16 @@
+@use "../../styles/assets" as *;
+
+.landing,
+.what,
+.example {
+  padding: 2rem;
+  min-height: 80vh;
+}
+
+.landing {
+  h1 {
+    font-size: $font-xl;
+    color: $primary;
+    font-weight: 700;
+  }
+}

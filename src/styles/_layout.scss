@@ -43,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid $light-black;
+  border: 1px solid $black;
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
@@ -51,4 +51,19 @@
   img {
     object-fit: contain;
   }
+}
+
+.button--primary {
+  padding: 0.5rem 2rem;
+  border: 1px solid $primary;
+  background: $primary;
+  color: $background;
+  transition: 0.3s ease-in-out;
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  background: transparent;
+  color: $black;
+  transition: 0.3s ease-in-out;
 }

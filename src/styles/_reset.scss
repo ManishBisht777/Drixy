@@ -43,7 +43,10 @@ button {
 
 body {
   font-size: 1rem;
-  font-display: swap;
+  background: $background;
+  font-family: "Roboto", sans-serif;
+  color: $black;
+  text-transform: capitalize;
 }
 
 label[for="search"] {
