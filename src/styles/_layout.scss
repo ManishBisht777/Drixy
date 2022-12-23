@@ -59,6 +59,7 @@
   background: $primary;
   color: $background;
   transition: 0.3s ease-in-out;
+  width: fit-content;
 }
 
 .button--primary:hover,
@@ -66,4 +67,10 @@
   background: transparent;
   color: $black;
   transition: 0.3s ease-in-out;
+}
+
+.image-container {
+  border: 0.6rem solid $background;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffff;
 }

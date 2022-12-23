@@ -107,6 +107,9 @@ label[for=search] {
   background: #613583;
   color: #e0e0e0;
   transition: 0.3s ease-in-out;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .button--primary:hover,
@@ -116,6 +119,86 @@ label[for=search] {
   transition: 0.3s ease-in-out;
 }
 
+.image-container {
+  border: 0.6rem solid #e0e0e0;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffff;
+}
+
+.navbar {
+  padding: 2rem;
+  text-transform: capitalize;
+}
+
+.navbar__hamburger {
+  display: none;
+}
+
+.navbar__links {
+  gap: 1rem;
+}
+.navbar__links img {
+  width: 1.2rem;
+}
+
+.nav__close {
+  display: none;
+}
+
+.navbar__logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar__hamburger {
+    display: flex;
+  }
+  .navbar__hamburger[aria-expanded=false] ~ .navlink-link {
+    display: none;
+  }
+  .navbar__hamburger[aria-expanded=false] ~ .nav__close {
+    display: none;
+  }
+  .nav__close {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 2;
+  }
+  .nav__close img {
+    width: 1.3rem;
+  }
+  .navbar__logo-mobile {
+    display: flex;
+    width: 5rem !important;
+    margin-bottom: 3rem;
+  }
+  .navlink-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0rem;
+    flex-direction: column;
+    background: #e0e0e0;
+    padding: 2rem;
+    gap: 2rem;
+    z-index: 1;
+  }
+  .navbar__NavLinks {
+    gap: 0.5rem;
+  }
+  .navbar__NavLinks img {
+    width: 1.2rem;
+  }
+  .navbar__logo {
+    max-width: 5rem;
+  }
+}
 .landing,
 .what,
 .example {
@@ -127,4 +210,28 @@ label[for=search] {
   font-size: 3rem;
   color: #613583;
   font-weight: 700;
+}
+
+.what img {
+  max-width: 23rem;
+}
+.what h2 {
+  color: rgb(62, 84, 163);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.example {
+  padding-top: 4rem;
+  color: rgb(207, 99, 144);
+}
+.example h3 {
+  font-size: 2rem;
+}
+
+.example__images {
+  flex-wrap: wrap;
+}
+.example__images img {
+  max-width: 12rem;
 }/*# sourceMappingURL=main.css.map */

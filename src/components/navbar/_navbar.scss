@@ -1,0 +1,81 @@
+@use "../../styles/assets" as *;
+
+.navbar {
+  padding: 2rem;
+  text-transform: capitalize;
+}
+
+.navbar__hamburger {
+  display: none;
+}
+
+.navbar__links {
+  gap: 1rem;
+
+  img {
+    width: 1.2rem;
+  }
+}
+
+.nav__close {
+  display: none;
+}
+.navbar__logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__hamburger[aria-expanded="false"] ~ .navlink-link {
+    display: none;
+  }
+
+  .navbar__hamburger[aria-expanded="false"] ~ .nav__close {
+    display: none;
+  }
+  .nav__close {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 2;
+    img {
+      width: 1.3rem;
+    }
+  }
+
+  .navbar__logo-mobile {
+    display: flex;
+    width: 5rem !important;
+    margin-bottom: 3rem;
+  }
+  .navlink-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0rem;
+    flex-direction: column;
+    background: $background;
+    padding: 2rem;
+    gap: 2rem;
+    z-index: 1;
+  }
+
+  .navbar__NavLinks {
+    gap: 0.5rem;
+    img {
+      width: 1.2rem;
+    }
+  }
+  .navbar__logo {
+    max-width: 5rem;
+  }
+}
