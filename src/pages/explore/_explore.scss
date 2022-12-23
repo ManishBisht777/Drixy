@@ -1,0 +1,35 @@
+@use "../../styles/assets" as *;
+
+.explore {
+  padding: 2rem;
+  h1 {
+    color: $red;
+    font-size: $font-xl;
+    font-weight: 700;
+  }
+}
+
+.components {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.component {
+  img {
+    max-width: 8rem;
+    border-radius: 5px;
+  }
+}
+
+.component:nth-child(even) {
+  margin-top: 2rem;
+}
+
+.component__container {
+  flex-wrap: wrap;
+  padding: 2rem;
+
+  img {
+    max-width: 15rem;
+  }
+}

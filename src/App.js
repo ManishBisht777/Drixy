@@ -4,6 +4,7 @@ import Home from "./pages/home/home";
 import Explore from "./pages/explore/explore";
 import "./styles/main.css";
 import Login from "./pages/auth/login";
+import Combine from "./pages/combine/combine";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/combine" element={<Combine />} />
       </Routes>
     </>
   );

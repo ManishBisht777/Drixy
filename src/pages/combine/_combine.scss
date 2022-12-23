@@ -1,0 +1,37 @@
+@use "../../styles/assets" as *;
+
+.combine {
+  padding: 2rem;
+  width: 100%;
+}
+
+.sidebar {
+  width: 20%;
+  height: 100vh;
+  background: $pink;
+}
+
+.build__container {
+  width: 75%;
+}
+
+.dummy-nav {
+  background: $pink;
+  padding: 1rem 2rem;
+}
+
+.dummy-land {
+  background: $green;
+  padding: 1rem 2rem;
+  height: 50vh;
+}
+
+.dummy-sec {
+  background: $yellow;
+  height: 50vh;
+}
+
+.dummy-foot {
+  background: $blue;
+  padding: 1rem 2rem;
+}
