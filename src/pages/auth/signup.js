@@ -3,10 +3,11 @@ import { auth } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setUser } from "../../store/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [userDetails, setUserDetails] = useState({});
+  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -29,16 +30,19 @@ const Signup = () => {
         dispatch(setUser(userCredential.user));
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
-        // ..
+        setError(errorMessage);
       });
   };
 
   return (
-    <main>
-      <form action="" onSubmit={(e) => handleSubmit(e)}>
+    <main className="auth-container container container--center gap--md">
+      <h1>Signup</h1>
+      <form
+        className="auth container container--col container--center gap--md image-container"
+        action=""
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <input
           type="text"
           placeholder="enter email"
@@ -53,8 +57,13 @@ const Signup = () => {
             setUserDetails({ ...userDetails, password: e.target.value })
           }
         />
-        <button type="submit">Register</button>
+        <button className="button--primary" type="submit">
+          Register
+        </button>
       </form>
+      <div>Already have an account?</div>
+      {error && <p>{error}</p>}
+      <Link to="/login">Login</Link>
     </main>
   );
 };

@@ -34,8 +34,13 @@ const Login = () => {
   };
 
   return (
-    <main>
-      <form action="" onSubmit={(e) => handleSubmit(e)}>
+    <main className="auth-container container container--center gap--md">
+      <h1>Login</h1>
+      <form
+        className="auth container container--col container--center gap--md image-container"
+        action=""
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <input
           type="text"
           placeholder="enter email"
@@ -50,11 +55,13 @@ const Login = () => {
             setUserDetails({ ...userDetails, password: e.target.value })
           }
         />
-        <button type="submit">Login</button>
+        <button className="button--primary" type="submit">
+          Login
+        </button>
       </form>
       <div>Didn't have an account?</div>
       {error && <p>{error}</p>}
-      <Link to="/signup">Register yourself</Link>
+      <Link to="/signup">Register</Link>
     </main>
   );
 };

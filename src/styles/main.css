@@ -199,6 +199,27 @@ label[for=search] {
     max-width: 5rem;
   }
 }
+.auth-container {
+  min-height: 80vh;
+}
+.auth-container h1 {
+  color: #613583;
+  font-size: 3rem;
+}
+
+.auth {
+  height: 50vh;
+  padding: 2rem;
+  background: url("../images/b11.jpg") no-repeat center/cover;
+}
+.auth input {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: #e0e0e0;
+  border: none;
+  border: 1px solid rgb(207, 99, 144);
+}
+
 .landing,
 .example {
   padding: 2rem;
@@ -211,9 +232,9 @@ label[for=search] {
 }
 
 .landing {
+  background: url("../images/handshake.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgb(0, 0, 0);
   background-blend-mode: darken;
 }
 .landing h1 {
