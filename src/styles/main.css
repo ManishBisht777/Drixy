@@ -200,10 +200,14 @@ label[for=search] {
   }
 }
 .landing,
-.what,
 .example {
   padding: 2rem;
   min-height: 90vh;
+}
+
+.what {
+  padding: 2rem;
+  min-height: 70vh;
 }
 
 .landing {
@@ -345,7 +349,7 @@ label[for=search] {
 }
 
 .component img {
-  max-width: 8rem;
+  max-width: 12rem;
   border-radius: 5px;
 }
 

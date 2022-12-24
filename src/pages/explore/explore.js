@@ -8,6 +8,13 @@ import {
   SetNavbar,
 } from "../../store/componentSlice";
 
+import navbar from "../../images/navbar.png";
+import footer from "../../images/footer.png";
+import land from "../../images/land1.png";
+import misc from "../../images/mics.png";
+import card from "../../images/cards.png";
+import features from "../../images/features.png";
+
 const Explore = () => {
   const [menu, setMenu] = useState(false);
   const dispatch = useDispatch();
@@ -42,38 +49,33 @@ const Explore = () => {
         <p>Browse through a collection of components and use as you like</p>
         <div className="components container gap--md">
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
+            <img src={navbar} alt="" />
             <p>navbar</p>
           </div>
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
+            <img src={land} alt="" />
+            <p>landing page</p>
           </div>
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
+            <img src={card} alt="" />
+            <p>cards</p>
           </div>
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
+            <img src={features} alt="" />
+            <p>features</p>
           </div>
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
+            <img src={misc} alt="" />
+            <p>Mislanneous</p>
           </div>
           <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
-          </div>
-          <div className="component container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>navbar</p>
+            <img src={footer} alt="" />
+            <p>footer</p>
           </div>
         </div>
       </section>
 
       <section className="container container--center gap--lg">
-        <p>List of Navbars</p>
         {menu && (
           <select onChange={(e) => setComponentName(e.target.value)}>
             <option value="">Select</option>

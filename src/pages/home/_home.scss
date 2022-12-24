@@ -1,12 +1,15 @@
 @use "../../styles/assets" as *;
 
 .landing,
-.what,
 .example {
   padding: 2rem;
   min-height: 90vh;
 }
 
+.what {
+  padding: 2rem;
+  min-height: 70vh;
+}
 .landing {
   // background: url("../images/handshake.jpg");
   background-size: cover;
