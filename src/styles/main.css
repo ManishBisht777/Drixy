@@ -203,13 +203,25 @@ label[for=search] {
 .what,
 .example {
   padding: 2rem;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
+.landing {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0);
+  background-blend-mode: darken;
+}
 .landing h1 {
   font-size: 3rem;
   color: #613583;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.landing h1 img {
+  width: 10rem;
 }
 
 .what img {
@@ -240,15 +252,52 @@ label[for=search] {
   padding: 2rem;
   width: 100%;
 }
-
-.sidebar {
-  width: 20%;
-  height: 100vh;
-  background: rgb(207, 99, 144);
+.combine h3 {
+  font-size: 3rem;
+  text-align: center;
+  color: #1d1027;
 }
 
 .build__container {
-  width: 75%;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.add {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
+}
+.add input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 85%;
+  position: relative;
+}
+.add button {
+  width: 15%;
+  border-radius: 0.5rem;
+  text-align: center;
+  position: relative;
+  background: rgb(62, 84, 163);
+  color: #e0e0e0;
+}
+.add .error {
+  border: 0.2rem solid rgb(237, 44, 73);
+}
+.add .error::after {
+  content: "Please add a link";
+  text-transform: capitalize;
+  color: rgb(237, 44, 73);
+  position: absolute;
+  top: 3rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .dummy-nav,

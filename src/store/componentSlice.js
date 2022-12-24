@@ -13,6 +13,13 @@ export const ComponentSlice = createSlice({
 
   reducers: {
     SetExtraComponent: (state, action) => {
+      const objIndex = state.extra.findIndex(
+        (obj) => obj.name === action.payload.name
+      );
+
+      state.extra[objIndex].path = action.payload.path;
+    },
+    AddExtraComponent: (state, action) => {
       state.extra.push({
         name: action.payload.name,
         path: action.payload.path,
@@ -30,7 +37,12 @@ export const ComponentSlice = createSlice({
   },
 });
 
-export const { SetExtraComponent, SetNavbar, SetFooter, SetLanding } =
-  ComponentSlice.actions;
+export const {
+  SetExtraComponent,
+  SetNavbar,
+  SetFooter,
+  SetLanding,
+  AddExtraComponent,
+} = ComponentSlice.actions;
 
 export default ComponentSlice.reducer;

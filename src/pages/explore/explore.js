@@ -1,17 +1,38 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import what from "../../images/what.jpg";
-import { SetNavbar } from "../../store/componentSlice";
+import {
+  SetExtraComponent,
+  SetFooter,
+  SetLanding,
+  SetNavbar,
+} from "../../store/componentSlice";
 
 const Explore = () => {
-  const [copyPath, setCopyPath] = useState(false);
   const [menu, setMenu] = useState(false);
   const dispatch = useDispatch();
+  const [componentName, setComponentName] = useState(null);
+  const [componentURL, setComponentURL] = useState(null);
 
   const { extra } = useSelector((state) => state.component);
 
-  function copyHandler(type) {
-    setMenu(true);
+  if (componentName) {
+    console.log(componentName, componentURL);
+
+    if (componentName === "navbar") dispatch(SetNavbar(componentURL));
+    if (componentName === "footer") dispatch(SetFooter(componentURL));
+    if (componentName === "landing") dispatch(SetLanding(componentURL));
+
+    extra.forEach((ex) => {
+      console.log(ex.name);
+
+      if (componentName === ex.name)
+        dispatch(
+          SetExtraComponent({ name: componentName, path: componentURL })
+        );
+    });
+    setComponentName(null);
+    setMenu(false);
   }
 
   return (
@@ -53,15 +74,26 @@ const Explore = () => {
 
       <section className="container container--center gap--lg">
         <p>List of Navbars</p>
+        {menu && (
+          <select onChange={(e) => setComponentName(e.target.value)}>
+            <option value="">Select</option>
+            <option value="navbar">navbar</option>
+            <option value="landing">landing</option>
+            {extra.map((extraSection) => (
+              <option value={extraSection.name}>{extraSection.name}</option>
+            ))}
+            <option value="footer">footer</option>
+          </select>
+        )}
         <div className="component__container container gap--md container--center-row">
           <div className="container container--center gap--sm">
             <img src={what} alt="" />
             <button
-              className={copyPath ? "decorated-btn" : "decorated-btn"}
               aria-expanded="false"
               value="https://i.picsum.photos/id/162/536/354.jpg?hmac=O9LyWssbp2-8dlACsHdgF2OiKw5IrePVo8GUg6t7d5Y"
-              onClick={() => {
-                copyHandler();
+              onClick={(e) => {
+                setMenu(true);
+                setComponentURL(e.target.value);
               }}
             >
               Get

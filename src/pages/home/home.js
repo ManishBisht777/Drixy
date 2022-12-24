@@ -1,11 +1,16 @@
 import React from "react";
 import what from "../../images/what.jpg";
+import hand from "../../images/hand.png";
 
 const Home = () => {
   return (
     <main>
       <section className="landing container container--center gap--md">
-        <h1>Designers 🤝 Developers</h1>
+        <h1>
+          Designers
+          <img src={hand} alt="" />
+          Developers
+        </h1>
         <p>A place to desginers and developer to collaborate</p>
         <button className="button--primary">Explore</button>
       </section>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import land1 from "../../images/land1.png";
-import land2 from "../../images/land2.png";
 import { useDispatch, useSelector } from "react-redux";
-import { SetExtraComponent } from "../../store/componentSlice";
+import { AddExtraComponent } from "../../store/componentSlice";
 
 const Combine = () => {
   const [extraSectionName, setExtraSectionName] = useState("");
@@ -12,40 +11,57 @@ const Combine = () => {
       name: extraSectionName,
       path: null,
     };
-    dispatch(SetExtraComponent(newSeg));
+    dispatch(AddExtraComponent(newSeg));
   };
 
   const dispatch = useDispatch();
-  const { navbar, landing, extra, footer } = useSelector(
+  const { navbar, landing, footer, extra } = useSelector(
     (state) => state.component
   );
 
   console.log(extra);
 
   return (
-    <main className="combine container gap--lg">
-      <div className="sidebar">sidebar</div>
-      <div className="build__container container container--col">
-        <form action="" onSubmit={(e) => addSection(e)}>
-          <input
-            type="text"
-            onChange={(e) => setExtraSectionName(e.target.value)}
-          />
-          <button type="submit">Add A section</button>
-        </form>
+    <main className="combine container gap--lg container--col">
+      <form
+        className="container gap--lg add"
+        action=""
+        onSubmit={(e) => addSection(e)}
+      >
+        <input
+          type="text"
+          placeholder="Enter Section Name"
+          onChange={(e) => setExtraSectionName(e.target.value)}
+        />
+        <button type="submit">Add A section</button>
+      </form>
 
+      <h3>Your Design</h3>
+
+      <div className="build__container container container--col">
         {!navbar ? (
           <div className="dummy-nav">Navbar</div>
         ) : (
           <img src={navbar} alt="" />
         )}
-        {/* <div className="dummy-land">landing page</div> */}
-        <img src={land1} alt="" />
+
+        {!landing ? (
+          <div className="dummy-land">landing page</div>
+        ) : (
+          <img src={landing} alt="" />
+        )}
+
         {extra.map((sectionName, index) => {
-          return (
-            <div key={index} className="dummy-sec">
-              {sectionName.name}
-            </div>
+          return !sectionName.path ? (
+            <>
+              <div key={index} className="dummy-sec">
+                {sectionName.name}
+              </div>
+            </>
+          ) : (
+            <>
+              <img key={index} src={sectionName.path} alt="" />
+            </>
           );
         })}
 
