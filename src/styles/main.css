@@ -128,6 +128,13 @@ label[for=search] {
 .navbar {
   padding: 2rem;
   text-transform: capitalize;
+  background-color: #e0c7f4;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #613583;
+  font-weight: 700;
 }
 
 .navbar__hamburger {
@@ -392,11 +399,24 @@ label[for=search] {
 
 .explore {
   padding: 2rem;
+  background: #e0c7f4;
+  color: #1d1027;
+  min-height: 80vh;
 }
 .explore h1 {
-  color: rgb(237, 44, 73);
+  color: #613583;
   font-size: 3rem;
   font-weight: 700;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.explore h1::before {
+  position: absolute;
+  content: "";
+  background: url("../images/curve.svg") no-repeat center/contain;
+  width: 120%;
+  height: 2rem;
+  bottom: -1.5rem;
 }
 
 .components {

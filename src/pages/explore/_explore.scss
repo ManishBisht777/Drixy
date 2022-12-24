@@ -2,10 +2,24 @@
 
 .explore {
   padding: 2rem;
+  background: #e0c7f4;
+  color: $darkblack;
+  min-height: 80vh;
   h1 {
-    color: $red;
+    color: $primary;
     font-size: $font-xl;
     font-weight: 700;
+    position: relative;
+    margin-bottom: 3rem;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background: url("../images/curve.svg") no-repeat center/contain;
+      width: 120%;
+      height: 2rem;
+      bottom: -1.5rem;
+    }
   }
 }
 

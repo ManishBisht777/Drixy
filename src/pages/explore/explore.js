@@ -66,7 +66,7 @@ const Explore = () => {
           </div>
           <div className="component container container--center gap--sm">
             <img src={misc} alt="" />
-            <p>Mislanneous</p>
+            <p>miscellaneous</p>
           </div>
           <div className="component container container--center gap--sm">
             <img src={footer} alt="" />

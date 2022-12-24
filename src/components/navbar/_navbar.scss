@@ -3,6 +3,13 @@
 .navbar {
   padding: 2rem;
   text-transform: capitalize;
+  background-color: #e0c7f4;
+}
+
+.logo {
+  font-size: 2rem;
+  color: $primary;
+  font-weight: 700;
 }
 
 .navbar__hamburger {

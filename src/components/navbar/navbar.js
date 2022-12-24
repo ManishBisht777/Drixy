@@ -24,7 +24,7 @@ const Navbar = () => {
       >
         <img src={ham} alt="toggle menu" />
       </button>
-      <img className="navbar__logo" src={logo} alt="Artsy logo" />
+      <h1 className="logo">Drixy</h1>
       <ul
         className="container gap--lg  navbar__NavLinks navlink-link"
         onClick={(e) => {
