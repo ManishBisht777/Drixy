@@ -4,6 +4,7 @@ import Home from "./pages/home/home";
 import Explore from "./pages/explore/explore";
 import "./styles/main.css";
 import Login from "./pages/auth/login";
+import Signup from "./pages/auth/signup";
 import Combine from "./pages/combine/combine";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/login" element={<Login />} />
         <Route path="/combine" element={<Combine />} />
+        <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </>
   );
