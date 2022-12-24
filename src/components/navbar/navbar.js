@@ -61,7 +61,7 @@ const Navbar = () => {
       </ul>
       <ul className="container gap--md navbar__NavLinks ">
         <li>
-          <Link className="button--secondary" to="/notification">
+          <Link className="button--secondary" to="/login">
             Login
           </Link>
         </li>
