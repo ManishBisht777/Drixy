@@ -15,23 +15,31 @@
   width: 75%;
 }
 
+.dummy-nav,
+.dummy-land,
+.dummy-foot,
+.dummy-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dummy-nav {
-  background: $pink;
+  border: 1px solid $black;
   padding: 1rem 2rem;
 }
 
 .dummy-land {
-  background: $green;
-  padding: 1rem 2rem;
+  border: 1px solid $black;
   height: 50vh;
 }
 
 .dummy-sec {
-  background: $yellow;
+  border: 1px solid $black;
   height: 50vh;
 }
 
 .dummy-foot {
-  background: $blue;
+  border: 1px solid $black;
   padding: 1rem 2rem;
 }

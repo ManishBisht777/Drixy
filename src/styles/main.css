@@ -251,24 +251,32 @@ label[for=search] {
   width: 75%;
 }
 
+.dummy-nav,
+.dummy-land,
+.dummy-foot,
+.dummy-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dummy-nav {
-  background: rgb(207, 99, 144);
+  border: 1px solid #636363;
   padding: 1rem 2rem;
 }
 
 .dummy-land {
-  background: #26a269;
-  padding: 1rem 2rem;
+  border: 1px solid #636363;
   height: 50vh;
 }
 
 .dummy-sec {
-  background: #e5a50a;
+  border: 1px solid #636363;
   height: 50vh;
 }
 
 .dummy-foot {
-  background: rgb(62, 84, 163);
+  border: 1px solid #636363;
   padding: 1rem 2rem;
 }
 

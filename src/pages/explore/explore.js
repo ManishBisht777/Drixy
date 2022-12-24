@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import what from "../../images/what.jpg";
 
 const Explore = () => {
+  const [copyPath, setCopyPath] = useState(false);
+
+  function copyHandler(e) {
+    navigator.clipboard.writeText(e.target.value);
+    console.log("copied");
+    setCopyPath(true);
+    setTimeout(() => {
+      setCopyPath(false);
+    }, 30000);
+  }
+
   return (
     <main>
       <section className="explore container container--center gap--md">
@@ -44,55 +55,16 @@ const Explore = () => {
         <div className="component__container container gap--md container--center-row">
           <div className="container container--center gap--sm">
             <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
-          </div>
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <p>path</p>
+            <button
+              className={copyPath ? "decorated-btn" : "decorated-btn"}
+              aria-expanded="false"
+              value="path of navbar"
+              onClick={(e) => {
+                copyHandler(e);
+              }}
+            >
+              Get
+            </button>
           </div>
         </div>
       </section>
