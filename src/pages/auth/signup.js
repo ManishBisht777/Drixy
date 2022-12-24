@@ -17,7 +17,7 @@ const Signup = () => {
   useEffect(() => {
     if (!user) return;
     navigate("/");
-  }, [user]);
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -17,14 +17,14 @@ const Login = () => {
   useEffect(() => {
     if (!user) return;
     navigate("/");
-  }, [user]);
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, userDetails.email, userDetails.password)
       .then((userCredential) => {
         const user = userCredential.user;
-
+        console.log(user);
         dispatch(setUser(user));
       })
       .catch((error) => {

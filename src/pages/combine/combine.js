@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import land1 from "../../images/land1.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AddExtraComponent } from "../../store/componentSlice";
 
@@ -65,7 +64,11 @@ const Combine = () => {
           );
         })}
 
-        <div className="dummy-foot">footer</div>
+        {!footer ? (
+          <div className="dummy-foot">footer</div>
+        ) : (
+          <img src={footer} alt="" />
+        )}
       </div>
     </main>
   );
