@@ -207,7 +207,7 @@ label[for=search] {
 
 .what {
   padding: 2rem;
-  min-height: 70vh;
+  padding-top: 5rem;
 }
 
 .landing {
@@ -229,12 +229,37 @@ label[for=search] {
 }
 
 .what img {
-  max-width: 23rem;
+  max-width: 30rem;
 }
 .what h2 {
   color: rgb(62, 84, 163);
   font-weight: 700;
+  font-size: 2.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.what h2::before {
+  position: absolute;
+  content: "";
+  background: url("../images/curve.svg") no-repeat center/contain;
+  width: 30%;
+  height: 2rem;
+  bottom: -1rem;
+}
+.what li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.what li span {
   font-size: 2rem;
+}
+
+.use {
+  color: rgb(62, 84, 163);
+  font-weight: 700;
+  margin-top: 2rem;
+  font-size: 1.2rem;
 }
 
 .example {
@@ -243,6 +268,17 @@ label[for=search] {
 }
 .example h3 {
   font-size: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+.example h3::before {
+  position: absolute;
+  content: "";
+  background: url("../images/curve.svg") no-repeat center/contain;
+  width: 70%;
+  height: 2rem;
+  bottom: -2rem;
 }
 
 .example__images {

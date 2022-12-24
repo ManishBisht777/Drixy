@@ -23,25 +23,24 @@ const Home = () => {
           <h2>what it is</h2>
           <ul className="container container--col gap--sm">
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-              amet!
+              <span>🥲</span>
+              Done with Scrolling through Dribble and behance?
             </li>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-              amet!
+              <span>🥹</span> Can't Find a proper desgin for your upcoming
+              Project?
             </li>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-              amet!
+              <span>😢</span> Don't know how to use figma?
             </li>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-              amet!
+              <span>😭</span> Have individual section but don't know how they
+              will look with each other?
             </li>
           </ul>
-          <p>
+          <p className="use">
             We provide you a large collection on compoents for you to mix and
-            match to make a desgifn for you upcoming project
+            match to make a desgifn for you upcoming projects
           </p>
           <button className="button--primary">examples</button>
         </div>
