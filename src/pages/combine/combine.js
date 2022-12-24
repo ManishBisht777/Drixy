@@ -8,7 +8,11 @@ const Combine = () => {
   const [extraSectionName, setExtraSectionName] = useState("");
   const addSection = (e) => {
     e.preventDefault();
-    dispatch(SetExtraComponent(extraSectionName));
+    const newSeg = {
+      name: extraSectionName,
+      path: null,
+    };
+    dispatch(SetExtraComponent(newSeg));
   };
 
   const dispatch = useDispatch();
@@ -30,15 +34,19 @@ const Combine = () => {
           <button type="submit">Add A section</button>
         </form>
 
-        {navbar ? (
+        {!navbar ? (
           <div className="dummy-nav">Navbar</div>
         ) : (
           <img src={navbar} alt="" />
         )}
         {/* <div className="dummy-land">landing page</div> */}
         <img src={land1} alt="" />
-        {extra.map((sectionName) => {
-          return <div className="dummy-sec">{sectionName}</div>;
+        {extra.map((sectionName, index) => {
+          return (
+            <div key={index} className="dummy-sec">
+              {sectionName.name}
+            </div>
+          );
         })}
 
         <div className="dummy-foot">footer</div>

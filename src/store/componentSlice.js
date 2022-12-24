@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  navbar: "",
-  landing: "",
+  navbar: null,
+  landing: null,
   extra: [],
-  footer: "",
+  footer: null,
 };
 
 export const ComponentSlice = createSlice({
@@ -13,11 +13,24 @@ export const ComponentSlice = createSlice({
 
   reducers: {
     SetExtraComponent: (state, action) => {
-      state.extra.push(action.payload);
+      state.extra.push({
+        name: action.payload.name,
+        path: action.payload.path,
+      });
+    },
+    SetNavbar: (state, action) => {
+      state.navbar = action.payload;
+    },
+    SetLanding: (state, action) => {
+      state.landing = action.payload;
+    },
+    SetFooter: (state, action) => {
+      state.footer = action.payload;
     },
   },
 });
 
-export const { SetExtraComponent } = ComponentSlice.actions;
+export const { SetExtraComponent, SetNavbar, SetFooter, SetLanding } =
+  ComponentSlice.actions;
 
 export default ComponentSlice.reducer;

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import what from "../../images/what.jpg";
+import { SetNavbar } from "../../store/componentSlice";
 
 const Explore = () => {
   const [copyPath, setCopyPath] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const dispatch = useDispatch();
 
-  function copyHandler(e) {
-    navigator.clipboard.writeText(e.target.value);
-    console.log("copied");
-    setCopyPath(true);
-    setTimeout(() => {
-      setCopyPath(false);
-    }, 30000);
+  const { extra } = useSelector((state) => state.component);
+
+  function copyHandler(type) {
+    setMenu(true);
   }
 
   return (
@@ -58,9 +59,9 @@ const Explore = () => {
             <button
               className={copyPath ? "decorated-btn" : "decorated-btn"}
               aria-expanded="false"
-              value="path of navbar"
-              onClick={(e) => {
-                copyHandler(e);
+              value="https://i.picsum.photos/id/162/536/354.jpg?hmac=O9LyWssbp2-8dlACsHdgF2OiKw5IrePVo8GUg6t7d5Y"
+              onClick={() => {
+                copyHandler();
               }}
             >
               Get
