@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {storage, auth} from '../auth/firebase';
+import {storage, db} from '../auth/firebase';
+import { doc, setDoc } from "firebase/firestore"; 
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {useSelector} from 'react-redux';
+import {v4 as uuidv4} from 'uuid';
 
 const ImageUpload = () => {
     const [img, setImg] = useState("");
@@ -33,9 +35,13 @@ const ImageUpload = () => {
               console.log(error);
             },
             () => {
-              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
                 console.log("File available at", downloadURL);
-
+                    let docid=await setDoc(doc(db, "images", uuidv4()), {
+                        url: downloadURL,
+                        type: 'navbar'
+                    });
+                    console.log(docid);
               });
             }
           );
