@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { storage, db } from "../auth/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useSelector } from "react-redux";
-// import { v4 as uuidv4 } from "uuid";
 
 const ImageUpload = () => {
   const [img, setImg] = useState("");
-  const { user } = useSelector((state) => state.auth);
   const [type, setType] = useState(null);
   const [success, setSuccess] = useState("");
 
