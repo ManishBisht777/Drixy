@@ -8,8 +8,9 @@ import { v4 as uuidv4 } from "uuid";
 const ImageUpload = () => {
   const [img, setImg] = useState("");
   const { user } = useSelector((state) => state.auth);
-
   const [type, setType] = useState(null);
+  const [success, setSuccess] = useState("");
+
   const uploadFile = (e) => {
     e.preventDefault();
 
@@ -20,9 +21,6 @@ const ImageUpload = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
             console.log("Upload is paused");
@@ -39,11 +37,15 @@ const ImageUpload = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-          console.log("File available at", downloadURL);
-          let docid = await setDoc(doc(db, "images", uuidv4()), {
+          await setDoc(doc(db, "images", uuidv4()), {
             url: downloadURL,
             type: type,
           });
+          setSuccess(true);
+
+          setTimeout(() => {
+            setSuccess(false);
+          }, 3000);
         });
       }
     );
@@ -68,6 +70,8 @@ const ImageUpload = () => {
         <button className="button--primary" onClick={(e) => uploadFile(e)}>
           Upload Image
         </button>
+
+        {success && <p>Image Uploaded</p>}
       </form>
     </div>
   );
