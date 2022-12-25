@@ -65,6 +65,11 @@ const Navbar = () => {
             Login
           </Link>
         </li>
+        <li>
+          <Link className="button--secondary" to="/imageupload">
+            Upload Image
+          </Link>
+        </li>
       </ul>
 
       <button className="nav__close" onClick={() => setToggleNav(!toggleNav)}>
