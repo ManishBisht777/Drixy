@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { storage, db } from "../auth/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 const ImageUpload = () => {
   const [img, setImg] = useState("");
@@ -14,9 +14,9 @@ const ImageUpload = () => {
   const uploadFile = (e) => {
     e.preventDefault();
 
-    const name = `userID/${user.uid}/${img.name}`;
-    console.log(name);
-    const stogrageRef = ref(storage, name);
+    // const name = `userID/${user.uid}/${img.name}`;
+    // console.log(name);
+    const stogrageRef = ref(storage, img.name);
     const uploadTask = uploadBytesResumable(stogrageRef, img);
     uploadTask.on(
       "state_changed",
@@ -37,12 +37,11 @@ const ImageUpload = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-          await setDoc(doc(db, "images", uuidv4()), {
+          await addDoc(collection(db, "images"), {
             url: downloadURL,
             type: type,
           });
           setSuccess(true);
-
           setTimeout(() => {
             setSuccess(false);
           }, 3000);
