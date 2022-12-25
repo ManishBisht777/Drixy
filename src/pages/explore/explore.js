@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import what from "../../images/what.jpg";
 import {
   SetExtraComponent,
   SetFooter,
@@ -14,8 +13,11 @@ import land from "../../images/land1.png";
 import misc from "../../images/mics.png";
 import card from "../../images/cards.png";
 import features from "../../images/features.png";
+import { storage } from "../auth/firebase";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
 
 const Explore = () => {
+  const [imgList, setImgList] = useState([]);
   const [menu, setMenu] = useState(false);
   const dispatch = useDispatch();
   const [componentName, setComponentName] = useState(null);
@@ -42,6 +44,27 @@ const Explore = () => {
     setMenu(false);
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const stogrageRef = ref(storage);
+
+      listAll(stogrageRef).then((res) => {
+        res.items.forEach((image) => {
+          console.log(image.name);
+          getDownloadURL(image).then((url) =>
+            setImgList((old) => {
+              const newState = [...old];
+              newState.push(url);
+              return newState;
+            })
+          );
+        });
+      });
+    };
+
+    fetchData();
+  }, []);
+  console.log(imgList);
   return (
     <main>
       <section className="explore container container--center gap--md">
@@ -88,19 +111,25 @@ const Explore = () => {
           </select>
         )}
         <div className="component__container container gap--md container--center-row">
-          <div className="container container--center gap--sm">
-            <img src={what} alt="" />
-            <button
-              aria-expanded="false"
-              value="https://i.picsum.photos/id/162/536/354.jpg?hmac=O9LyWssbp2-8dlACsHdgF2OiKw5IrePVo8GUg6t7d5Y"
-              onClick={(e) => {
-                setMenu(true);
-                setComponentURL(e.target.value);
-              }}
-            >
-              Get
-            </button>
-          </div>
+          {imgList &&
+            imgList.length &&
+            imgList.map((currImg) => {
+              return (
+                <div className="container container--center gap--sm">
+                  <img src={currImg} alt="" />
+                  <button
+                    aria-expanded="false"
+                    value={currImg}
+                    onClick={(e) => {
+                      setMenu(true);
+                      setComponentURL(e.target.value);
+                    }}
+                  >
+                    Get
+                  </button>
+                </div>
+              );
+            })}
         </div>
       </section>
     </main>
