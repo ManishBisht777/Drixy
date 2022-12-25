@@ -3,14 +3,24 @@ import logo from "../../images/artsy.svg";
 import { Link, NavLink } from "react-router-dom";
 import ham from "../../images/ham.svg";
 import close from "../../images/close.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../../store/AuthSlice";
 
 const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
+  const { user } = useSelector((state) => state.auth);
 
   const toggleNavbar = (e) => {
     e.stopPropagation();
     console.log(e.target.tagName);
     setToggleNav(!toggleNav);
+  };
+
+  const dispatch = useDispatch();
+
+  const logoutHandle = () => {
+    localStorage.removeItem("user");
+    dispatch(setUser(null));
   };
 
   return (
@@ -59,17 +69,24 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
+
       <ul className="container gap--md navbar__NavLinks ">
-        <li>
-          <Link className="button--secondary" to="/login">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link className="button--secondary" to="/imageupload">
-            Upload Image
-          </Link>
-        </li>
+        {!user ? (
+          <li>
+            <Link className="button--secondary" to="/login">
+              Login
+            </Link>
+          </li>
+        ) : (
+          <>
+            <button onClick={() => logoutHandle()}>Logout</button>
+            <li>
+              <Link className="button--secondary" to="/imageupload">
+                Upload Image
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
 
       <button className="nav__close" onClick={() => setToggleNav(!toggleNav)}>

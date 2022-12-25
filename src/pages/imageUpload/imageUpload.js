@@ -50,8 +50,11 @@ const ImageUpload = () => {
   };
 
   return (
-    <div>
-      <form action="">
+    <div className="auth-container container container--center gap--md">
+      <form
+        className="auth container container--col container--center gap--md image-container"
+        action=""
+      >
         <input type="file" onChange={(e) => setImg(e.target.files[0])} />
         <select onChange={(e) => setType(e.target.value)}>
           <option value=""></option>
@@ -62,7 +65,9 @@ const ImageUpload = () => {
           <option value="features">features</option>
           <option value="miscellaneous">miscellaneous</option>
         </select>
-        <button onClick={(e) => uploadFile(e)}>Upload Image</button>
+        <button className="button--primary" onClick={(e) => uploadFile(e)}>
+          Upload Image
+        </button>
       </form>
     </div>
   );
