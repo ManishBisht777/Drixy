@@ -6,6 +6,7 @@ import "./styles/main.css";
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";
 import Combine from "./pages/combine/combine";
+import ImageUpload from "./pages/imageUpload/imageUpload";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/combine" element={<Combine />} />
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/imageupload" element={<ImageUpload/>}/>
       </Routes>
     </>
   );
